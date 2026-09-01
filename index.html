@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style id='brand'>:root{
+  --bg:#0b0b0c; --surface:#141417; --surface-2:#1c1c21;
+  --fg:#f5f5f7; --fg-muted:#a1a1aa; --border:#26262b;
+  --accent:#3b82f6; --accent-fg:#fff; --radius:14px; --maxw:1100px;
+  --font:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.hero{padding:140px 0 90px;text-align:center}
+h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.01em}
+.muted{color:var(--fg-muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-fg);padding:14px 28px;border-radius:var(--radius);font-weight:600;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,opacity .15s ease}
+.btn:hover{transform:translateY(-2px);opacity:.92}
+.btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--border)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.grid{display:grid;gap:24px}
+@media(max-width:640px){.section{padding:64px 0}.hero{padding:96px 0 64px}}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GravityCart — Pull Every Abandoned Cart Back Into Orbit</title>
+<style>
+  :root{
+    --accent: #8b6bff;
+    --accent-2: #4dd8ff;
+    --bg: #0a0a12;
+    --surface: #12121e;
+    --fg: #f2f1fb;
+    --fg-muted: #9a97b8;
+    --border: #23223a;
+    --radius: 14px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:
+      radial-gradient(circle at 15% 0%, rgba(139,107,255,0.18), transparent 45%),
+      radial-gradient(circle at 90% 10%, rgba(77,216,255,0.12), transparent 40%),
+      var(--bg);
+  }
+
+  /* ---------- NAV ---------- */
+  .navbar{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 18px 32px;
+    transition: background 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .navbar.scrolled{
+    background: rgba(10,10,18,0.75);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 32px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:-0.02em;
+    color:var(--fg);
+  }
+  .brand-orb{
+    width:26px;height:26px;border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #fff, var(--accent) 45%, var(--accent-2) 100%);
+    box-shadow: 0 0 18px rgba(139,107,255,0.7);
+  }
+  .navlinks{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0;padding:0;
+  }
+  .navlinks a{
+    color: var(--fg-muted);
+    text-decoration:none;
+    font-size:0.92rem;
+    transition: color 0.2s ease;
+  }
+  .navlinks a:hover{ color: var(--fg); }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding: 100px 32px 80px;
+    overflow:hidden;
+    text-align:left;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items:center;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 14px;
+    border:1px solid var(--border);
+    border-radius:100px;
+    font-size:0.78rem;
+    color:var(--accent-2);
+    background: rgba(139,107,255,0.08);
+    margin-bottom:22px;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+    line-height:1.06;
+    letter-spacing:-0.03em;
+    margin:0 0 22px;
+    color:var(--fg);
+    animation: fadeUp 0.8s ease both 0.05s;
+  }
+  .hero h1 span{
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.sub{
+    font-size:1.12rem;
+    color:var(--fg-muted);
+    max-width:520px;
+    margin:0 0 34px;
+    animation: fadeUp 0.8s ease both 0.15s;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    animation: fadeUp 0.8s ease both 0.25s;
+  }
+  .btn{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+  }
+  .btn.primary{
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    border:none;
+    color:#0a0a12;
+    font-weight:600;
+    box-shadow: 0 10px 30px -8px rgba(139,107,255,0.6);
+  }
+  .btn.primary:hover{ filter:brightness(1.08); transform: translateY(-1px); }
+  .trust-line{
+    margin-top:30px;
+    font-size:0.82rem;
+    color:var(--fg-muted);
+    display:flex;
+    gap:8px;
+    align-items:center;
+    animation: fadeUp 0.8s ease both 0.35s;
+  }
+
+  /* ---------- ORBIT VISUAL ---------- */
+  .orbit-stage{
+    position:relative;
+    height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .orbit-ring{
+    position:absolute;
+    border:1px solid rgba(139,107,255,0.25);
+    border-radius:50%;
+    animation: spin linear infinite;
+  }
+  .orbit-ring.r1{ width:180px; height:180px; animation-duration:12s; }
+  .orbit-ring.r2{ width:280px; height:280px; animation-duration:22s; animation-direction:reverse; border-color: rgba(77,216,255,0.2);}
+  .orbit-ring.r3{ width:380px; height:380px; animation-duration:34s; }
+  .orbit-dot{
+    position:absolute;
+    top:-6px; left:50%;
+    width:12px; height:12px;
+    margin-left:-6px;
+    border-radius:50%;
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 14px rgba(139,107,255,0.9);
+  }
+  .orbit-core{
+    position:relative;
+    width:120px;height:120px;
+    border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #1a1a2e, #0a0a12 70%);
+    border:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 0 60px rgba(139,107,255,0.35) inset, 0 0 40px rgba(139,107,255,0.25);
+    z-index:5;
+  }
+  .orbit-core svg{ width:46px; height:46px; color: var(--fg); }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  /* ---------- STATS STRIP ---------- */
+  .stats{
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding: 28px 32px;
+  }
+  .stats-row{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .stat{ text-align:center; flex:1; min-width:140px; }
+  .stat .num{
+    font-size:1.8rem;
+    font-weight:700;
+    color:var(--fg);
+    letter-spacing:-0.02em;
+  }
+  .stat .lbl{ font-size:0.82rem; color:var(--fg-muted); margin-top:4px; }
+
+  /* ---------- FEATURES ---------- */
+  .section-head{
+    max-width:640px;
+    margin: 0 auto 48px;
+    text-align:center;
+  }
+  .section-head h2{
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    letter-spacing:-0.02em;
+    margin:0 0 14px;
+    color:var(--fg);
+  }
+  .feature-card{
+    padding:28px;
+    transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    will-change: transform;
+  }
+  .feature-card:hover{
+    border-color: rgba(139,107,255,0.5);
+    background: linear-gradient(160deg, rgba(139,107,255,0.06), transparent);
+  }
+  .feature-icon{
+    width:44px;height:44px;
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background: linear-gradient(135deg, rgba(139,107,255,0.18), rgba(77,216,255,0.14));
+    margin-bottom:18px;
+  }
+  .feature-icon svg{ width:22px;height:22px; color: var(--accent-2); }
+  .feature-card h3{ margin:0 0 10px; font-size:1.08rem; color:var(--fg); }
+  .feature-card p{ margin:0; color:var(--fg-muted); font-size:0.92rem; line-height:1.5; }
+
+  /* ---------- PRICING ---------- */
+  .pricing-card{
+    padding:32px 28px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .pricing-card:hover{ transform: translateY(-6px); }
+  .pricing-card.featured{
+    border-color: var(--accent);
+    background: linear-gradient(160deg, rgba(139,107,255,0.1), rgba(77,216,255,0.03));
+  }
+  .badge{
+    position:absolute; top:-12px; right:24px;
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    color:#0a0a12;
+    font-size:0.72rem;
+    font-weight:700;
+    padding:5px 12px;
+    border-radius:100px;
+  }
+  .price-name{ font-size:0.9rem; color:var(--fg-muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em;}
+  .price-amount{ font-size:2.2rem; font-weight:700; color:var(--fg); margin-bottom:4px; }
+  .price-amount span{ font-size:0.95rem; color:var(--fg-muted); font-weight:400; }
+  .price-desc{ color:var(--fg-muted); font-size:0.88rem; margin-bottom:24px; }
+  .price-list{ list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:10px; }
+  .price-list li{ font-size:0.88rem; color:var(--fg); display:flex; gap:10px; align-items:flex-start; }
+  .price-list li::before{ content:"✓"; color: var(--accent-2); font-weight:700; }
+  .pricing-card .btn{ margin-top:auto; }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    max-width:1180px;
+    margin: 0 auto;
+    padding: 56px 48px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(139,107,255,0.16), rgba(77,216,255,0.08));
+    border:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .cta-banner h2{ margin:0 0 8px; font-size:1.7rem; color:var(--fg); letter-spacing:-0.02em; }
+  .cta-banner p{ margin:0; color:var(--fg-muted); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--border);
+    padding: 44px 32px 28px;
+    margin-top:40px;
+  }
+  .footer-grid{
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap:32px;
+  }
+  .footer-grid h4{ color:var(--fg); font-size:0.85rem; margin:0 0 14px; letter-spacing:0.03em; text-transform:uppercase; }
+  .footer-grid ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+  .footer-grid a{ color:var(--fg-muted); text-decoration:none; font-size:0.88rem; transition:color 0.2s; }
+  .footer-grid a:hover{ color:var(--fg); }
+  .footer-bottom{
+    max-width:1180px;
+    margin: 36px auto 0;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    color:var(--fg-muted);
+    font-size:0.8rem;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media (max-width: 900px){
+    .hero-inner{ grid-template-columns: 1fr; }
+    .orbit-stage{ height:280px; }
+    .navlinks{ display:none; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="brand"><span class="brand-orb"></span> GravityCart</div>
+  <ul class="navlinks">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#pricing" class="btn btn-ghost" style="padding:8px 16px;font-size:0.88rem;">Sign in</a>
+    <a href="#pricing" class="btn primary" style="padding:8px 18px;font-size:0.88rem;">Start free</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">⚡ Now with predictive recovery AI</span>
+      <h1>Every abandoned cart<br>has its own <span>gravity</span>.</h1>
+      <p class="sub">GravityCart pulls hesitant shoppers back with perfectly-timed nudges, one-tap checkout, and smart discounts — turning cart abandonment into your highest-margin channel.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn primary">Start recovering revenue</a>
+        <a href="#features" class="btn btn-ghost">See how it works</a>
+      </div>
+      <div class="trust-line">★★★★★ Trusted by 4,200+ Shopify &amp; WooCommerce stores</div>
+    </div>
+
+    <div class="orbit-stage">
+      <div class="orbit-ring r3"></div>
+      <div class="orbit-ring r2"><span class="orbit-dot" style="background:linear-gradient(120deg,#ffd76b,#ff8b6b)"></span></div>
+      <div class="orbit-ring r1"><span class="orbit-dot"></span></div>
+      <div class="orbit-core">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.6 12.4a2 2 0 0 0 2 1.6h8a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.3" fill="currentColor"/><circle cx="17" cy="20" r="1.3" fill="currentColor"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-row">
+    <div class="stat"><div class="num" data-count="34">0</div><div class="lbl">% avg cart recovery lift</div></div>
+    <div class="stat"><div class="num" data-count="4200">0</div><div class="lbl">stores powered</div></div>
+    <div class="stat"><div class="num" data-count="118">0</div><div class="lbl">M+ recovered revenue</div></div>
+    <div class="stat"><div class="num" data-count="9">0</div><div class="lbl">min setup, no code</div></div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head">
+      <h2>Built to counter cart abandonment</h2>
+      <p class="muted">Four forces working together to keep revenue from drifting away.</p>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(4,1fr); gap:20px;">
+      <div class="card feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v4H4zM6 8v11a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8"/></svg></div>
+        <h3>Gravity Emails &amp; SMS</h3>
+        <p>Auto-triggered sequences timed to the second shoppers are most likely to return.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <h3>One-Tap Checkout</h3>
+        <p>Pre-filled, frictionless checkout that turns a saved cart into a completed order in seconds.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18"/></svg></div>
+        <h3>Predictive Discounts</h3>
+        <p>AI decides the minimum incentive needed per shopper — protecting margin while lifting conversion.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M10 19V9M16 19v-6M22 19H2"/></svg></div>
+        <h3>Orbit Analytics</h3>
+        <p>See exactly which carts are drifting away and how much gravity you're pulling back in real time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <h2>Simple pricing, gravitational returns</h2>
+      <p class="muted">Start free. Upgrade once GravityCart is paying for itself — most stores do within a week.</p>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr); gap:24px;">
+      <div class="card pricing-card">
+        <div class="price-name">Launch</div>
+        <div class="price-amount">$0<span>/mo</span></div>
+        <div class="price-desc">For new stores testing the waters.</div>
+        <ul class="price-list">
+          <li>Up to 200 recovered carts/mo</li>
+          <li>Email recovery sequences</li>
+          <li>Basic analytics</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">Start free</a>
+      </div>
+      <div class="card pricing-card featured">
+        <span class="badge">Most popular</span>
+        <div class="price-name">Orbit</div>
+        <div class="price-amount">$79<span>/mo</span></div>
+        <div class="price-desc">For growing stores ready to scale recovery.</div>
+        <ul class="price-list">
+          <li>Unlimited recovered carts</li>
+          <li>Email + SMS + one-tap checkout</li>
+          <li>Predictive discount engine</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn primary">Get Orbit</a>
+      </div>
+      <div class="card pricing-card">
+        <div class="price-name">Escape Velocity</div>
+        <div class="price-amount">Custom</div>
+        <div class="price-desc">For high-volume brands &amp; multi-store operators.</div>
+        <ul class="price-list">
+          <li>Everything in Orbit</li>
+          <li>Custom AI models per segment</li>
+          <li>Dedicated success manager</li>
+          <li>API &amp; multi-store rollups</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-banner">
+    <div>
+      <h2>Stop losing carts to the void.</h2>
+      <p>Install GravityCart in under 10 minutes — no code, no dev ticket.</p>
+    </div>
+    <a href="#pricing" class="btn primary">Start free — no card required</a>
+  </div>
+</section>
+
+<footer id="faq">
+  <div class="footer-grid">
+    <div>
+      <div class="brand" style="margin-bottom:12px;"><span class="brand-orb"></span> GravityCart</div>
+      <p class="muted" style="max-width:280px; font-size:0.88rem;">The recovery engine that pulls abandoned carts back into orbit — and revenue back into your bank account.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <ul><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#">Integrations</a></li><li><a href="#">Changelog</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li><li><a href="#">Contact</a></li></ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Security</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 GravityCart, Inc. All rights reserved.</span>
+    <span>Made for stores that refuse to lose gravity.</span>
+  </div>
+</footer>
+
+<script>
+  // Nav background on scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Animated stat counters (content already shows final value as fallback via data-count)
+  const stats = document.querySelectorAll('.stat .num');
+  const animateCount = (el) => {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    let current = 0;
+    const step = Math.max(1, Math.ceil(target / 40));
+    const tick = () => {
+      current += step;
+      if (current >= target) { el.textContent = target; return; }
+      el.textContent = current;
+      requestAnimationFrame(tick);
+    };
+    tick();
+  };
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    stats.forEach(el => { el.textContent = '0'; obs.observe(el); });
+  } else {
+    stats.forEach(el => el.textContent = el.getAttribute('data-count'));
+  }
+
+  // Subtle tilt on feature/pricing cards
+  document.querySelectorAll('.feature-card, .pricing-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(600px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg) translateY(-2px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+</script>
+
+</body>
+</html>
