@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { VideoLoop } from "./VideoLoop";
@@ -34,9 +35,9 @@ export function Hero() {
             GC-SPORT / 01 — HOMOLOGATION RECORD
           </p>
           <h1 className="font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-wide text-white md:text-[6.5rem]">
-            <WordStagger text="NEW" startDelay={0.15} />
-            <WordStagger text="TECHNICAL" startDelay={0.23} />
-            <WordStagger text="LEADER" startDelay={0.31} />
+            <WordStagger text="ONE CHASSIS" startDelay={0.15} />
+            <WordStagger text="WHEELS OR SKIS" startDelay={0.23} />
+            <WordStagger text="CERTIFIED" startDelay={0.31} />
           </h1>
           <motion.p
             className="mt-6 max-w-[480px] font-sans text-base text-white/85 md:text-lg"
@@ -44,9 +45,26 @@ export function Hero() {
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}
           >
-            Engineered like a car. Built for the mountain. One machine, every season —
-            certified for the road you&apos;re not supposed to be excited about.
+            One certified chassis, rated to 120kg, converts tool-free between wheel and
+            ski assemblies — built for pavement, gravel and packed snow.
           </motion.p>
+          <motion.div
+            initial={reduce ? undefined : { opacity: 0, y: 20 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 1.15 }}
+            className="mt-9"
+          >
+            <Link href="/product" className="inline-block">
+              <motion.span
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-block rounded-full bg-signal px-8 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
+              >
+                Shop the GC-SPORT-01
+              </motion.span>
+            </Link>
+          </motion.div>
         </div>
       </motion.div>
 

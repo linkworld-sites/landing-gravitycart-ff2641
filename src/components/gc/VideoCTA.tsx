@@ -32,15 +32,16 @@ export function VideoCTA() {
             One machine, every season — engineered like a car, certified like one too.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <motion.button
-              type="button"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-full bg-signal px-8 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
-            >
-              Book a Test Ride
-            </motion.button>
+            <Link href="/product" className="inline-block">
+              <motion.span
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-block rounded-full bg-signal px-8 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
+              >
+                Shop the GC-SPORT-01
+              </motion.span>
+            </Link>
             <motion.a
               href="#certifications"
               whileHover={{ scale: 1.03 }}
