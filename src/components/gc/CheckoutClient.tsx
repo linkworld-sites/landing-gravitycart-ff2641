@@ -48,9 +48,10 @@ export function CheckoutClient() {
     stale.forEach((i) => remove(i.product_id));
     setError(null);
     setBusy(true);
-    const ok = await checkout(known);
+    const orderId = `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    const successUrl = `${window.location.origin}/checkout/success?order=${orderId}&value=${total}&currency=EUR`;
+    const ok = await checkout(known, { successUrl });
     if (ok) {
-      track("purchase");
       clear();
     } else {
       setBusy(false);
