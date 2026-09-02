@@ -32,6 +32,10 @@
     {
       "q": "What is the load rating of the certified chassis?",
       "a": "The GC-SPORT-01 chassis is rated to 120kg, with certified wheel and ski assemblies included, engineered for pavement, gravel and packed snow."
+    },
+    {
+      "q": "Is the Gravity Cart Sport CE and ISO compliant?",
+      "a": "Yes. The Gravity Cart Sport is independently tested and documented against ECE 2006/42/EG, ISO EN 12100 and ISO EN 4210 — the same category of machinery and safety directives that govern the automotive and machinery industries."
     }
   ]
 }
