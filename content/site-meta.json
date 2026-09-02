@@ -16,5 +16,22 @@
     "material": "Stainless steel fork",
     "brakes": "Shimano dual disc brakes"
   },
-  "faq": []
+  "faq": [
+    {
+      "q": "How does the wheel-to-ski conversion work on the Gravity Cart Sport?",
+      "a": "The GC-SPORT-01 chassis mounts its terrain interface at the same certified attachment points year-round. Swapping to winter use means releasing the wheel assembly and engaging the Ski Assembly Kit (GC-SKI-200) — a tool-free binding, no separate frame."
+    },
+    {
+      "q": "What terrain and grade is the ski conversion rated for?",
+      "a": "The GC-SKI-200 ski assembly is 780mm in length and rated to a 25% descent grade on packed snow, fitted to the GC-SPORT-01 chassis."
+    },
+    {
+      "q": "What braking hardware does the Gravity Cart Sport use?",
+      "a": "The Shimano Dual Brake Kit (GC-BRK-180) is a hydraulic dual-disc set with 180mm front and rear rotors, tested against the ECE R100 braking standard."
+    },
+    {
+      "q": "What is the load rating of the certified chassis?",
+      "a": "The GC-SPORT-01 chassis is rated to 120kg, with certified wheel and ski assemblies included, engineered for pavement, gravel and packed snow."
+    }
+  ]
 }
