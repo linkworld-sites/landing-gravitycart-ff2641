@@ -4,6 +4,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { FunnelTracker } from "@/components/FunnelTracker";
 import { EditBridge } from "@/components/EditBridge";
 import { CookieConsent } from "@/components/CookieConsent";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const bodyFont = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
@@ -21,14 +22,44 @@ const monoFont = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GravityCart — Engineered Like a Car. Built for the Mountain.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "GravityCart — Engineered Like a Car. Built for the Mountain.",
+    template: "%s — GravityCart",
+  },
   description:
     "The Gravity Cart Sport: a certified, all-season gravity vehicle engineered by automotive experts. One machine, every terrain.",
+  alternates: { canonical: "/" },
+  verification: { google: "WlJ66mw7eszwjs5WXh-HAJ_3n22gXQA1yf23ABf0enE" },
+};
+
+const ORG_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "GravityCart",
+      url: SITE_URL,
+      description:
+        "GravityCart engineers certified, all-season gravity vehicles built to automotive safety and reliability standards.",
+    },
+    {
+      "@type": "WebSite",
+      name: "GravityCart",
+      url: SITE_URL,
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
+        />
+      </head>
       <body className="bg-ink text-aluminum font-sans antialiased">
         <FunnelTracker />
         <EditBridge />

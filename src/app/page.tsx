@@ -1,6 +1,7 @@
 // Signature element: the Mode Conversion Bay's scroll-scrubbed wheel↔ski
 // crossfade with live torque callouts — no competitor's landing page can
 // show its own product changing shape as you scroll.
+import type { Metadata } from "next";
 import { Nav } from "@/components/gc/Nav";
 import { Hero } from "@/components/gc/Hero";
 import { CertificationMarquee } from "@/components/gc/CertificationMarquee";
@@ -9,6 +10,13 @@ import { NumbersBand } from "@/components/gc/NumbersBand";
 import { StepsRail } from "@/components/gc/StepsRail";
 import { ComponentGrid } from "@/components/gc/ComponentGrid";
 import { VideoCTA } from "@/components/gc/VideoCTA";
+
+export const metadata: Metadata = {
+  title: "GravityCart — Engineered Like a Car. Built for the Mountain.",
+  description:
+    "The Gravity Cart Sport: a certified, all-season gravity vehicle engineered by automotive experts. One machine, every terrain.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

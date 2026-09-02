@@ -5,9 +5,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const LINKS = [
-  { href: "#certifications", label: "CERTIFICATION" },
-  { href: "#bay", label: "CONVERSION BAY" },
-  { href: "#specs", label: "PARTS CATALOG" },
+  { href: "/#certifications", label: "CERTIFICATION" },
+  { href: "/#bay", label: "CONVERSION BAY" },
+  { href: "/#specs", label: "PARTS CATALOG" },
+];
+
+const ROUTE_LINKS = [
+  { href: "/product", label: "SHOP" },
+  { href: "/checkout", label: "CHECKOUT" },
 ];
 
 function NavLink({ href, label }: { href: string; label: string }) {
@@ -20,6 +25,20 @@ function NavLink({ href, label }: { href: string; label: string }) {
       {label}
       <span className="absolute -bottom-1.5 left-0 h-[2px] w-full origin-left scale-x-0 bg-signal transition-transform duration-300 ease-out group-hover:scale-x-100" />
     </motion.a>
+  );
+}
+
+function NavRouteLink({ href, label }: { href: string; label: string }) {
+  return (
+    <motion.span className="inline-block" whileTap={{ scale: 0.96 }}>
+      <Link
+        href={href}
+        className="group relative font-mono text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
+      >
+        {label}
+        <span className="absolute -bottom-1.5 left-0 h-[2px] w-full origin-left scale-x-0 bg-signal transition-transform duration-300 ease-out group-hover:scale-x-100" />
+      </Link>
+    </motion.span>
   );
 }
 
@@ -45,6 +64,9 @@ export function Nav() {
       <nav className="hidden items-center gap-8 md:flex">
         {LINKS.map((l) => (
           <NavLink key={l.href} {...l} />
+        ))}
+        {ROUTE_LINKS.map((l) => (
+          <NavRouteLink key={l.href} {...l} />
         ))}
         <Link href="/blog" className="text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white">
           JOURNAL
