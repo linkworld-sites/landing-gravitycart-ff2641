@@ -8,6 +8,7 @@ import { ComponentGrid } from "@/components/gc/ComponentGrid";
 import { RiderVoices } from "@/components/gc/RiderVoices";
 import { OperatorsTeaser } from "@/components/gc/OperatorsTeaser";
 import { VideoCTA } from "@/components/gc/VideoCTA";
+import { productJsonLd } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
   title: "GravityCart — Engineered Like a Car. Built for the Mountain.",
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-ink">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd()) }}
+      />
       <Nav />
       <Hero />
       <ExperienceSection />
