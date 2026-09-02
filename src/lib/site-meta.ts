@@ -47,3 +47,21 @@ export function productJsonLd() {
     },
   };
 }
+
+export function getFaq() {
+  return siteMeta.faq;
+}
+
+export function faqJsonLd() {
+  const faq = siteMeta.faq;
+  if (!faq || faq.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
