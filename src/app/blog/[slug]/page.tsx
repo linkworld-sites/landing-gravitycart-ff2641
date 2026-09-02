@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost, getPosts } from "@/lib/posts";
 import { SITE_URL } from "@/lib/site";
+import { productJsonLd } from "@/lib/site-meta";
 
 export function generateStaticParams() {
   return getPosts().map((p) => ({ slug: p.slug }));
@@ -47,6 +48,10 @@ export default async function BlogPost({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd()) }}
       />
       <Link href="/blog" className="underline opacity-70">← All posts</Link>
       <h1 className="mt-8 text-4xl font-bold tracking-tight">{post.title}</h1>

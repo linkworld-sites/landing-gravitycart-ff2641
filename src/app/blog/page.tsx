@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPosts } from "@/lib/posts";
+import { productJsonLd } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
   title: "Journal — Engineering Notes from GravityCart",
@@ -17,6 +18,10 @@ export default function BlogIndex() {
   const posts = getPosts();
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-6 py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd()) }}
+      />
       <h1 className="text-4xl font-bold tracking-tight">Blog</h1>
       {posts.length === 0 ? (
         <p className="mt-8 opacity-70">New stories are on the way — check back soon.</p>
