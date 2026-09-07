@@ -21,7 +21,7 @@ export function VideoCTA() {
             GC-SPORT / FINAL INSPECTION PASSED
           </p>
           <h2 className="font-display text-4xl font-medium uppercase leading-[0.95] text-white md:text-6xl">
-            Shimano stops it. Gravity starts it.
+            Point it downhill. Shimano brings you home.
           </h2>
           <p className="mx-auto mt-6 max-w-md text-white/60">
             One machine, every season — engineered like a car, certified like one too.
