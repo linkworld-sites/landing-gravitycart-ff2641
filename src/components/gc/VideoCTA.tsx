@@ -3,20 +3,15 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FadeUp } from "./FadeUp";
+import { YouTubeLoop } from "./YouTubeLoop";
 
 export function VideoCTA() {
   return (
     <section className="relative overflow-hidden bg-ink pt-32">
       <div className="relative flex min-h-[85vh] flex-col items-center justify-center px-6">
-        <video
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
-          src="/videos/hero.mp4"
-          poster="/images/hero.png"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <div className="absolute inset-0 opacity-50">
+          <YouTubeLoop videoId="EQC6k56h8lE" className="h-full w-full" />
+        </div>
         <div className="absolute inset-x-0 top-0 z-[1] h-[200px] bg-gradient-to-b from-ink to-transparent" />
         <div className="absolute inset-x-0 bottom-0 z-[1] h-[200px] bg-gradient-to-t from-ink to-transparent" />
         <div className="absolute inset-0 z-[1] bg-ink/40" />

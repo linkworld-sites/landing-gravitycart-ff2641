@@ -25,20 +25,21 @@ declare global {
           };
         }
       ) => YTPlayer;
-      PlayerState: { PLAYING: number };
+      PlayerState: { PLAYING: number; ENDED: number };
     };
   }
 }
 
-const VIDEO_ID = "4ktgw-ubclc";
-const LOOP_START = 22;
-const LOOP_END = 52;
-
 type YouTubeLoopProps = {
+  videoId: string;
+  /** Loop segment start, in seconds. Defaults to the start of the video. */
+  start?: number;
+  /** Loop segment end, in seconds. Omit to loop the whole video. */
+  end?: number;
   className?: string;
 };
 
-export function YouTubeLoop({ className }: YouTubeLoopProps) {
+export function YouTubeLoop({ videoId, start = 0, end, className }: YouTubeLoopProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YTPlayer | null>(null);
 
@@ -48,7 +49,7 @@ export function YouTubeLoop({ className }: YouTubeLoopProps) {
     const createPlayer = () => {
       if (!containerRef.current || !window.YT) return;
       playerRef.current = new window.YT.Player(containerRef.current, {
-        videoId: VIDEO_ID,
+        videoId,
         playerVars: {
           autoplay: 1,
           mute: 1,
@@ -59,23 +60,26 @@ export function YouTubeLoop({ className }: YouTubeLoopProps) {
           modestbranding: 1,
           playsinline: 1,
           rel: 0,
-          start: LOOP_START,
+          start,
         },
         events: {
           onReady: (e) => {
             e.target.mute();
-            e.target.seekTo(LOOP_START, true);
+            e.target.seekTo(start, true);
             e.target.playVideo();
           },
           onStateChange: (e) => {
-            if (e.data === window.YT?.PlayerState.PLAYING) {
+            if (typeof end === "number" && e.data === window.YT?.PlayerState.PLAYING) {
               if (interval) clearInterval(interval);
               interval = setInterval(() => {
                 const t = playerRef.current?.getCurrentTime();
-                if (typeof t === "number" && t >= LOOP_END) {
-                  playerRef.current?.seekTo(LOOP_START, true);
+                if (typeof t === "number" && t >= end) {
+                  playerRef.current?.seekTo(start, true);
                 }
               }, 250);
+            } else if (e.data === window.YT?.PlayerState.ENDED) {
+              playerRef.current?.seekTo(start, true);
+              playerRef.current?.playVideo();
             }
           },
         },
@@ -102,7 +106,7 @@ export function YouTubeLoop({ className }: YouTubeLoopProps) {
       if (interval) clearInterval(interval);
       playerRef.current?.destroy();
     };
-  }, []);
+  }, [videoId, start, end]);
 
   return (
     <div className={`relative overflow-hidden ${className ?? ""}`}>

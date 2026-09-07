@@ -21,7 +21,7 @@ export function Hero() {
         className="fixed inset-0 z-0 h-screen w-full"
         style={reduce ? undefined : { scale: videoScale }}
       >
-        <YouTubeLoop className="h-full w-full" />
+        <YouTubeLoop videoId="4ktgw-ubclc" start={22} end={52} className="h-full w-full" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/25 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_45%,rgba(10,12,14,0.6),transparent_70%)]" />
       </motion.div>
