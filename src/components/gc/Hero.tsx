@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { YouTubeLoop } from "./YouTubeLoop";
 import { WordStagger } from "./FadeUp";
 
-const CLAUSES = "CE · ECE 2006/42/EG · ISO EN 12100 · ISO EN 4210 · SHIMANO CERTIFIED DRIVETRAIN";
+const CLAUSES = "AUTOMOTIVE-GRADE ENGINEERING · SHIMANO DUAL-DISC BRAKES · ALL-SEASON CONVERSION";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -32,12 +32,12 @@ export function Hero() {
       >
         <div className="max-w-[720px]">
           <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-white/70">
-            GC-SPORT / 01 — HOMOLOGATION RECORD
+            GC-SPORT / 01
           </p>
           <h1 className="font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-wide text-white md:text-[6.5rem]">
             <WordStagger text="ONE CHASSIS" startDelay={0.15} />
             <WordStagger text="WHEELS OR SKIS" startDelay={0.23} />
-            <WordStagger text="CERTIFIED" startDelay={0.31} />
+            <WordStagger text="ALL-SEASON" startDelay={0.31} />
           </h1>
           <motion.p
             className="mt-6 max-w-[480px] font-sans text-base text-white/85 md:text-lg"
@@ -45,7 +45,7 @@ export function Hero() {
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}
           >
-            One certified chassis, rated to 120kg, converts tool-free between wheel and
+            One chassis, rated to 120kg, converts tool-free between wheel and
             ski assemblies — built for pavement, gravel and packed snow.
           </motion.p>
           <motion.div

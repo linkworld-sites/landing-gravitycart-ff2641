@@ -24,7 +24,7 @@ export function VideoCTA() {
             Point it downhill. Shimano brings you home.
           </h2>
           <p className="mx-auto mt-6 max-w-md text-white/60">
-            One machine, every season — engineered like a car, certified like one too.
+            One machine, every season — engineered like a car, built to outlast one.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link href="/product" className="inline-block">
@@ -37,21 +37,22 @@ export function VideoCTA() {
                 Shop the GC-SPORT-01
               </motion.span>
             </Link>
-            <motion.a
-              href="#certifications"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="liquid-glass rounded-full px-8 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
-            >
-              View Certification Record
-            </motion.a>
+            <Link href="/operators" className="inline-block">
+              <motion.span
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="liquid-glass inline-block rounded-full px-8 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
+              >
+                For Rental & Operators
+              </motion.span>
+            </Link>
           </div>
         </FadeUp>
 
         <footer className="relative z-10 mt-32 w-full max-w-6xl border-t border-white/10 pt-8 pb-4">
           <div className="flex flex-col items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.14em] text-white/40 md:flex-row">
-            <span>© 2026 GravityCart. All specifications subject to certification revision.</span>
+            <span>© 2026 GravityCart. All specifications subject to change.</span>
             <nav className="flex items-center gap-6">
               <Link href="/blog" className="transition-colors hover:text-white">
                 Journal

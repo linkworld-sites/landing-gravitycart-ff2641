@@ -25,7 +25,7 @@ const EXHIBITS: Exhibit[] = [
     specs: [
       ["MATERIAL", "304 stainless steel"],
       ["MOUNT", "Quick-release, tool-free"],
-      ["CERTIFIED", "CE 2006/42/EG, ISO EN 12100"],
+      ["DURABILITY", "Shock-absorbing, form-stable"],
     ],
   },
   {
@@ -53,7 +53,7 @@ const EXHIBITS: Exhibit[] = [
     specs: [
       ["DISC Ø", "180mm front & rear"],
       ["ACTUATION", "Independent, cable-actuated"],
-      ["STANDARD", "UN ECE 4210 tested"],
+      ["SERVICE", "5-minute part swap"],
     ],
   },
   {
@@ -135,7 +135,7 @@ export function ComponentGrid() {
               GC-SPORT / ENGINEERED IN DETAIL
             </p>
             <h2 className="max-w-xl font-display text-4xl font-medium uppercase leading-[0.95] text-white md:text-5xl">
-              Four systems, one certified machine
+              Four systems, one engineered machine
             </h2>
             <p className="mt-6 max-w-md text-white/60">
               Developed with automotive-experienced engineers and validated across tarmac,

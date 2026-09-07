@@ -28,7 +28,7 @@ function SpecPlaceholder({ partNo }: { partNo: string | null }) {
         <circle cx="60" cy="60" r="20" fill="none" stroke="currentColor" strokeWidth="1.5" />
       </svg>
       <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-aluminum/40">
-        HOMOLOGATION PHOTO PENDING
+        PRODUCT PHOTO PENDING
       </p>
       {partNo && (
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-signal">{partNo}</p>
@@ -132,7 +132,7 @@ export function ProductCatalog({ products: initial }: { products: Product[] }) {
         </p>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h1 className="max-w-xl font-display text-4xl font-medium uppercase leading-[0.95] text-white md:text-5xl">
-            Order the certified chassis
+            Order the chassis
           </h1>
           <Link
             href="/checkout"
@@ -144,7 +144,7 @@ export function ProductCatalog({ products: initial }: { products: Product[] }) {
           </Link>
         </div>
         <p className="mt-4 max-w-xl text-sm text-aluminum/60">
-          Every unit ships with its full homologation record. Spare assemblies and conversion kits are
+          Every unit ships ready to ride. Spare assemblies and conversion kits are
           machined to the same tolerance as the original chassis.
         </p>
       </FadeUp>
@@ -152,7 +152,7 @@ export function ProductCatalog({ products: initial }: { products: Product[] }) {
       <div className="mt-10">
         {empty ? (
           <p className="border-t border-aluminum/10 py-16 text-center font-mono text-[12px] uppercase tracking-[0.18em] text-aluminum/50">
-            Catalog is being re-certified — check back shortly.
+            Catalog is being updated — check back shortly.
           </p>
         ) : (
           catalog.map((p, i) => <ProductRow key={p.id} product={p} index={i} />)

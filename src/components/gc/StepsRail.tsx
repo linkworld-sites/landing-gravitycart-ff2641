@@ -22,8 +22,8 @@ const STEPS = [
   },
   {
     n: "04",
-    title: "CE / ISO Certification",
-    body: "Independently tested against ECE 2006/42/EG, ISO EN 12100 and ISO EN 4210 before release.",
+    title: "Field Validation",
+    body: "Ridden by experienced riders and operators across tarmac, gravel, grass and snow before release.",
   },
   {
     n: "05",

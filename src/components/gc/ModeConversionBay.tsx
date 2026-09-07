@@ -72,7 +72,7 @@ export function ModeConversionBay() {
             EXHIBIT / MODE-CONVERSION BAY
           </p>
           <h2 className="max-w-xl font-display text-4xl font-medium uppercase leading-[0.95] text-aluminum md:text-6xl">
-            One chassis. Two certified configurations.
+            One chassis. Two ride configurations.
           </h2>
         </FadeUp>
       </div>

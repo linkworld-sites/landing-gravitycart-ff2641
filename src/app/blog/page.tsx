@@ -5,7 +5,7 @@ import { getPosts } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Journal — Engineering Notes from GravityCart",
   description:
-    "Technical notes, certification updates and build stories from the GravityCart engineering team.",
+    "Technical notes, engineering updates and build stories from the GravityCart engineering team.",
   alternates: { canonical: "/blog" },
 };
 

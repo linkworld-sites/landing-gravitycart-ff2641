@@ -6,7 +6,7 @@ import { CheckoutClient } from "@/components/gc/CheckoutClient";
 export const metadata: Metadata = {
   title: "Checkout — Complete Your GravityCart Order",
   description:
-    "Review your cart and complete your certified GravityCart order through secure hosted payment.",
+    "Review your cart and complete your GravityCart order through secure hosted payment.",
   alternates: { canonical: "/checkout" },
 };
 

@@ -5,12 +5,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const LINKS = [
-  { href: "/#certifications", label: "CERTIFICATION" },
   { href: "/#bay", label: "CONVERSION BAY" },
   { href: "/#specs", label: "ENGINEERING" },
 ];
 
 const ROUTE_LINKS = [
+  { href: "/operators", label: "OPERATORS" },
   { href: "/product", label: "SHOP" },
   { href: "/checkout", label: "CHECKOUT" },
 ];

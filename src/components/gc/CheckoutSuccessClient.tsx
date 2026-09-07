@@ -43,7 +43,7 @@ export function CheckoutSuccessClient() {
         </h1>
         <p className="mx-auto mt-5 max-w-md text-[15px] text-aluminum/85">
           {confirmed
-            ? "Your order has been received and is queued for certified inspection before dispatch. A confirmation with tracking details will follow by email."
+            ? "Your order has been received and is queued for quality inspection before dispatch. A confirmation with tracking details will follow by email."
             : "Confirming your order…"}
         </p>
         {order && (
