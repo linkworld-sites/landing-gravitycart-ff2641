@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { VideoLoop } from "./VideoLoop";
+import { YouTubeLoop } from "./YouTubeLoop";
 import { WordStagger } from "./FadeUp";
 
 const CLAUSES = "CE · ECE 2006/42/EG · ISO EN 12100 · ISO EN 4210 · SHIMANO CERTIFIED DRIVETRAIN";
@@ -21,7 +21,7 @@ export function Hero() {
         className="fixed inset-0 z-0 h-screen w-full"
         style={reduce ? undefined : { scale: videoScale }}
       >
-        <VideoLoop src="/videos/hero.mp4" poster="/images/hero.png" className="h-full w-full" />
+        <YouTubeLoop className="h-full w-full" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/25 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_45%,rgba(10,12,14,0.6),transparent_70%)]" />
       </motion.div>
