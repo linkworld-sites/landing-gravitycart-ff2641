@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const LINKS = [
   { href: "/#certifications", label: "CERTIFICATION" },
   { href: "/#bay", label: "CONVERSION BAY" },
-  { href: "/#specs", label: "PARTS CATALOG" },
+  { href: "/#specs", label: "ENGINEERING" },
 ];
 
 const ROUTE_LINKS = [
