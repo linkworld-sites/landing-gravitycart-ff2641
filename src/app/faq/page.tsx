@@ -60,6 +60,15 @@ export default function FaqPage() {
               One Chassis, Two Certified Modes
             </Link>
             {" · "}
+            How the{" "}
+            <Link
+              href="/blog/2026-09-02-gravity-powered-descent-carts"
+              className="text-aluminum/80 underline decoration-aluminum/30 underline-offset-4 transition-colors hover:text-white"
+            >
+              gravity-powered descent cart
+            </Link>{" "}
+            converts between modes
+            {" · "}
             <Link
               href="/product"
               className="text-aluminum/80 underline decoration-aluminum/30 underline-offset-4 transition-colors hover:text-white"
