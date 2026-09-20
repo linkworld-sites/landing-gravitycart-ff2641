@@ -64,6 +64,9 @@ export function VideoCTA() {
               <Link href="/faq" className="transition-colors hover:text-white">
                 FAQ
               </Link>
+              <Link href="/availability" className="transition-colors hover:text-white">
+                Availability
+              </Link>
               <Link href="/legal/privacy" className="transition-colors hover:text-white">
                 Privacy
               </Link>

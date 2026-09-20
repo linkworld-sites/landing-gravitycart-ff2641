@@ -13,6 +13,7 @@ const LINKS = [
 const ROUTE_LINKS = [
   { href: "/product", label: "SHOP" },
   { href: "/faq", label: "FAQ" },
+  { href: "/availability", label: "AVAILABILITY" },
   { href: "/checkout", label: "CHECKOUT" },
 ];
 

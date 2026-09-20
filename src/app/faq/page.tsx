@@ -75,6 +75,13 @@ export default function FaqPage() {
             >
               Shop the GC-SPORT-01
             </Link>
+            {" · "}
+            <Link
+              href="/availability"
+              className="text-aluminum/80 underline decoration-aluminum/30 underline-offset-4 transition-colors hover:text-white"
+            >
+              Retailer &amp; regional availability
+            </Link>
           </p>
         </div>
       </section>

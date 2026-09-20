@@ -65,3 +65,25 @@ export function faqJsonLd() {
     })),
   };
 }
+
+export function getAvailability() {
+  return siteMeta.availability;
+}
+
+export function getAvailabilityFaq() {
+  return siteMeta.availabilityFaq;
+}
+
+export function availabilityFaqJsonLd() {
+  const faq = siteMeta.availabilityFaq;
+  if (!faq || faq.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
