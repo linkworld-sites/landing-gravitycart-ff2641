@@ -46,6 +46,13 @@ export function FAQ() {
             gravity-powered descent cart
           </Link>{" "}
           converts between modes
+          {" · "}
+          <Link
+            href="/availability"
+            className="text-aluminum/80 underline decoration-aluminum/30 underline-offset-4 transition-colors hover:text-white"
+          >
+            Retailer &amp; regional availability
+          </Link>
         </p>
       </div>
     </section>

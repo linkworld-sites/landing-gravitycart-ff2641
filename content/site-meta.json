@@ -16,6 +16,53 @@
     "material": "Stainless steel fork",
     "brakes": "Shimano dual disc brakes"
   },
+  "availability": {
+    "channel": "Direct from GravityCart via this storefront — no third-party retailer or dealer network.",
+    "ledger": [
+      {
+        "sku": "GC-SPORT-01",
+        "item": "Gravity Cart Sport (chassis)",
+        "standard": "ECE 2006/42/EG, ISO EN 12100, ISO EN 4210",
+        "channel": "Direct / this storefront"
+      },
+      {
+        "sku": "GC-SKI-200",
+        "item": "Ski Assembly Kit",
+        "standard": "Rated to 25% descent grade, packed snow",
+        "channel": "Direct / this storefront"
+      },
+      {
+        "sku": "GC-FRK-100",
+        "item": "Stainless Steel Fork",
+        "standard": "304 stainless, tool-free quick-release",
+        "channel": "Direct / this storefront"
+      },
+      {
+        "sku": "GC-BRK-180",
+        "item": "Shimano Dual Brake Kit",
+        "standard": "ECE R100 tested",
+        "channel": "Direct / this storefront"
+      }
+    ]
+  },
+  "availabilityFaq": [
+    {
+      "q": "Does GravityCart sell through retailers or regional dealers?",
+      "a": "No. Every GC-SPORT-01 chassis and every replacement assembly (GC-SKI-200, GC-FRK-100, GC-BRK-180) ships direct from GravityCart through this storefront. There is no third-party retail or dealer network — this keeps the certification chain of custody intact from assembly to buyer."
+    },
+    {
+      "q": "Which regions is the Gravity Cart Sport certified for?",
+      "a": "The GC-SPORT-01 chassis is documented against ECE 2006/42/EG and ISO EN 12100 / ISO EN 4210, the machinery and safety directives referenced across the EU. The Shimano Dual Brake Kit (GC-BRK-180) is separately tested to ECE R100, a UNECE braking standard recognized across the EU and other UNECE-contracting markets."
+    },
+    {
+      "q": "Can I order replacement parts like the fork, ski kit or brake kit on their own?",
+      "a": "Yes. The Stainless Steel Fork (GC-FRK-100), Ski Assembly Kit (GC-SKI-200) and Shimano Dual Brake Kit (GC-BRK-180) are each sold as standalone SKUs through this storefront, independent of a full GC-SPORT-01 order."
+    },
+    {
+      "q": "Is availability limited by season or region?",
+      "a": "No — the GC-SPORT-01 is a single convertible chassis with certified wheel and ski assemblies included, so the same order covers pavement, gravel and packed-snow use rather than a region- or season-specific model."
+    }
+  ],
   "faq": [
     {
       "q": "How does the wheel-to-ski conversion work on the Gravity Cart Sport?",
