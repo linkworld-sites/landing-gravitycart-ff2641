@@ -8,6 +8,7 @@ import { ModeConversionBay } from "@/components/gc/ModeConversionBay";
 import { NumbersBand } from "@/components/gc/NumbersBand";
 import { StepsRail } from "@/components/gc/StepsRail";
 import { ComponentGrid } from "@/components/gc/ComponentGrid";
+import { RiderVoices } from "@/components/gc/RiderVoices";
 import { OperatorsTeaser } from "@/components/gc/OperatorsTeaser";
 import { VideoCTA } from "@/components/gc/VideoCTA";
 
@@ -27,6 +28,7 @@ export default function Home() {
       <NumbersBand />
       <StepsRail />
       <ComponentGrid />
+      <RiderVoices />
       <OperatorsTeaser />
       <VideoCTA />
     </main>
