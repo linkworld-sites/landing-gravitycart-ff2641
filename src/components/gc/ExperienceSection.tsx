@@ -30,18 +30,27 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="relative bg-graphite py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <FadeUp className="max-w-2xl">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-signal">
-            FOR OPERATORS
-          </p>
-          <h2 className="font-display text-4xl font-medium uppercase leading-[0.95] text-aluminum md:text-6xl">
-            The ride your guests will talk about all season
-          </h2>
-          <p className="mt-6 max-w-xl text-aluminum/70">
-            Guests ride down the mountain. Operators fill their lift and their season. Here&apos;s
-            what the Gravity Cart Sport means for both.
-          </p>
-        </FadeUp>
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+          <FadeUp className="max-w-2xl">
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-signal">
+              FOR OPERATORS
+            </p>
+            <h2 className="font-display text-4xl font-medium uppercase leading-[0.95] text-aluminum md:text-6xl">
+              The ride your guests will talk about all season
+            </h2>
+            <p className="mt-6 max-w-xl text-aluminum/70">
+              Guests ride down the mountain. Operators fill their lift and their season.
+              Here&apos;s what the Gravity Cart Sport means for both.
+            </p>
+          </FadeUp>
+          <FadeUp>
+            <img
+              src="/images/lifestyle.png"
+              alt="Rider taking in the mountain trail before the descent"
+              className="h-auto w-full rounded-sm object-cover"
+            />
+          </FadeUp>
+        </div>
 
         <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-aluminum/15 sm:grid-cols-2">
           {BENEFITS.map(({ icon: Icon, label, body }) => (
