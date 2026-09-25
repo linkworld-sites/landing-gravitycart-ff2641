@@ -6,6 +6,7 @@ type YTPlayer = {
   mute: () => void;
   seekTo: (seconds: number, allowSeekAhead: boolean) => void;
   playVideo: () => void;
+  pauseVideo: () => void;
   getCurrentTime: () => number;
   destroy: () => void;
 };
@@ -40,14 +41,36 @@ type YouTubeLoopProps = {
 };
 
 export function YouTubeLoop({ videoId, start = 0, end, className }: YouTubeLoopProps) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YTPlayer | null>(null);
+  const isVisibleRef = useRef(false);
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval> | null = null;
+    let cancelled = false;
+
+    const stopLoopPoll = () => {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    };
+
+    const startLoopPoll = () => {
+      if (typeof end !== "number") return;
+      stopLoopPoll();
+      interval = setInterval(() => {
+        if (!isVisibleRef.current) return;
+        const t = playerRef.current?.getCurrentTime();
+        if (typeof t === "number" && t >= end) {
+          playerRef.current?.seekTo(start, true);
+        }
+      }, 250);
+    };
 
     const createPlayer = () => {
-      if (!containerRef.current || !window.YT) return;
+      if (cancelled || !containerRef.current || !window.YT) return;
       playerRef.current = new window.YT.Player(containerRef.current, {
         videoId,
         playerVars: {
@@ -66,50 +89,68 @@ export function YouTubeLoop({ videoId, start = 0, end, className }: YouTubeLoopP
           onReady: (e) => {
             e.target.mute();
             e.target.seekTo(start, true);
-            e.target.playVideo();
+            if (isVisibleRef.current) e.target.playVideo();
           },
           onStateChange: (e) => {
             if (typeof end === "number" && e.data === window.YT?.PlayerState.PLAYING) {
-              if (interval) clearInterval(interval);
-              interval = setInterval(() => {
-                const t = playerRef.current?.getCurrentTime();
-                if (typeof t === "number" && t >= end) {
-                  playerRef.current?.seekTo(start, true);
-                }
-              }, 250);
+              startLoopPoll();
             } else if (e.data === window.YT?.PlayerState.ENDED) {
               playerRef.current?.seekTo(start, true);
-              playerRef.current?.playVideo();
+              if (isVisibleRef.current) playerRef.current?.playVideo();
             }
           },
         },
       });
     };
 
-    if (window.YT?.Player) {
-      createPlayer();
-    } else {
-      if (!document.getElementById("youtube-iframe-api")) {
-        const tag = document.createElement("script");
-        tag.id = "youtube-iframe-api";
-        tag.src = "https://www.youtube.com/iframe_api";
-        document.body.appendChild(tag);
-      }
-      const prevCallback = window.onYouTubeIframeAPIReady;
-      window.onYouTubeIframeAPIReady = () => {
-        prevCallback?.();
+    const loadPlayer = () => {
+      if (window.YT?.Player) {
         createPlayer();
-      };
-    }
+      } else {
+        if (!document.getElementById("youtube-iframe-api")) {
+          const tag = document.createElement("script");
+          tag.id = "youtube-iframe-api";
+          tag.src = "https://www.youtube.com/iframe_api";
+          document.body.appendChild(tag);
+        }
+        const prevCallback = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = () => {
+          prevCallback?.();
+          createPlayer();
+        };
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          if (!playerRef.current) {
+            loadPlayer();
+          } else {
+            playerRef.current.playVideo();
+            startLoopPoll();
+          }
+        } else {
+          stopLoopPoll();
+          playerRef.current?.pauseVideo();
+        }
+      },
+      { threshold: 0 }
+    );
+    if (wrapperRef.current) observer.observe(wrapperRef.current);
 
     return () => {
-      if (interval) clearInterval(interval);
+      cancelled = true;
+      observer.disconnect();
+      stopLoopPoll();
       playerRef.current?.destroy();
+      playerRef.current = null;
     };
   }, [videoId, start, end]);
 
   return (
-    <div className={`relative overflow-hidden ${className ?? ""}`}>
+    <div ref={wrapperRef} className={`relative overflow-hidden ${className ?? ""}`}>
       <div
         ref={containerRef}
         className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2"
