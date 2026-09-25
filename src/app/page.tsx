@@ -1,10 +1,7 @@
-// Signature element: the Chassis Bay's scroll-scrubbed wheel reveal with
-// live torque callouts — no competitor's landing page can show its own
-// product's engineering detail as you scroll.
 import type { Metadata } from "next";
 import { Nav } from "@/components/gc/Nav";
 import { Hero } from "@/components/gc/Hero";
-import { ModeConversionBay } from "@/components/gc/ModeConversionBay";
+import { ExperienceSection } from "@/components/gc/ExperienceSection";
 import { NumbersBand } from "@/components/gc/NumbersBand";
 import { StepsRail } from "@/components/gc/StepsRail";
 import { ComponentGrid } from "@/components/gc/ComponentGrid";
@@ -24,7 +21,7 @@ export default function Home() {
     <main className="relative min-h-screen bg-ink">
       <Nav />
       <Hero />
-      <ModeConversionBay />
+      <ExperienceSection />
       <NumbersBand />
       <StepsRail />
       <ComponentGrid />

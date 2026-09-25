@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const LINKS = [
-  { href: "/#bay", label: "CONVERSION BAY" },
+  { href: "/#experience", label: "FOR OPERATORS" },
   { href: "/#specs", label: "ENGINEERING" },
 ];
 
