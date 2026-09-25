@@ -35,7 +35,7 @@ function CountUp({ target, prefix = "", suffix = "" }: { target: number; prefix?
 }
 
 const METRICS = [
-  { node: <CountUp target={180} prefix="Ø" suffix="mm" />, label: "FRONT & REAR BRAKE DISC" },
+  { node: <CountUp target={120} suffix="kg" />, label: "RATED LOAD PER SEAT" },
   { node: <span className="tabular">300+100mm</span>, label: "SEAT TRAVEL — LOW + EXTENSION" },
   { node: <CountUp target={100} suffix="%" />, label: "RECYCLABLE FRAME ALLOY" },
   { node: <CountUp target={1} />, label: "CHASSIS. EVERY SEASON." },

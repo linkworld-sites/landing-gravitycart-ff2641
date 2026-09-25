@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { YouTubeLoop } from "./YouTubeLoop";
@@ -10,15 +11,16 @@ const CLAUSES = "AUTOMOTIVE-GRADE ENGINEERING · SHIMANO DUAL-DISC BRAKES · ALL
 
 export function Hero() {
   const reduce = useReducedMotion();
-  const { scrollY } = useScroll();
-  const copyY = useTransform(scrollY, [0, 500], [0, -40]);
-  const copyOpacity = useTransform(scrollY, [0, 420], [1, 0]);
-  const videoScale = useTransform(scrollY, [0, 900], [1, 1.05]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const copyY = useTransform(scrollYProgress, [0, 0.6], [0, -40]);
+  const copyOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden">
       <motion.div
-        className="fixed inset-0 z-0 h-screen w-full"
+        className="absolute inset-0 z-0 h-full w-full"
         style={reduce ? undefined : { scale: videoScale }}
       >
         <YouTubeLoop videoId="4ktgw-ubclc" start={22} end={52} className="h-full w-full" />
