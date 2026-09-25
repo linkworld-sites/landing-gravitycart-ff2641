@@ -1,6 +1,6 @@
-// Signature element: the Mode Conversion Bay's scroll-scrubbed wheel↔ski
-// crossfade with live torque callouts — no competitor's landing page can
-// show its own product changing shape as you scroll.
+// Signature element: the Chassis Bay's scroll-scrubbed wheel reveal with
+// live torque callouts — no competitor's landing page can show its own
+// product's engineering detail as you scroll.
 import type { Metadata } from "next";
 import { Nav } from "@/components/gc/Nav";
 import { Hero } from "@/components/gc/Hero";

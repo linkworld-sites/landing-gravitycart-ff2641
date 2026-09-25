@@ -8,7 +8,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Shop the GC-SPORT-01 Chassis & Parts",
   description:
-    "Order the Gravity Cart Sport convertible chassis, ski conversion kit, and spare assemblies — stainless fork, hydraulic brakes — direct from GravityCart.",
+    "Order the Gravity Cart Sport chassis and spare assemblies — stainless fork, hydraulic brakes — direct from GravityCart.",
   alternates: { canonical: "/product" },
 };
 

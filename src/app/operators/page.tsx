@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Mountain, Compass, Home, Tent, Bike, Users, ArrowRight } from "lucide-react";
 import { Nav } from "@/components/gc/Nav";
 import { FadeUp } from "@/components/gc/FadeUp";
+import ConversionForm from "@/components/ConversionForm";
 
 export const metadata: Metadata = {
   title: "Rental & Operator Programs",
@@ -25,7 +26,7 @@ const SEGMENTS = [
   {
     icon: Home,
     title: "Mountain Lodges & Huts",
-    body: "Offer cart rides as a guest activity that keeps visitors on-site longer, with tool-free wheel-to-ski conversion for whatever the season brings.",
+    body: "Offer cart rides as a guest activity that keeps visitors on-site longer, backed by automotive-grade engineering built for all-day fleet use.",
   },
   {
     icon: Tent,
@@ -59,8 +60,8 @@ export default function OperatorsPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-white/70">
             The Gravity Cart Sport is built for rental and operator use as much as for private
-            riders — one automotive-engineered chassis, tool-free wheel-to-ski conversion, and Shimano
-            dual-disc brakes that hold up to all-day fleet use.
+            riders — one automotive-engineered chassis and Shimano dual-disc brakes that hold up
+            to all-day fleet use.
           </p>
         </FadeUp>
       </section>
@@ -89,21 +90,28 @@ export default function OperatorsPage() {
             Tell us about your season, your terrain and your guest volume — we&apos;ll help you
             size a fleet.
           </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="mailto:contact@gravitycart.at?subject=Rental%20%26%20operator%20inquiry"
-              className="inline-flex items-center gap-2 rounded-full bg-signal px-8 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
-            >
-              Email Us
-              <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
-            </a>
-            <Link
-              href="/product"
-              className="liquid-glass inline-flex items-center gap-2 rounded-full px-8 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
-            >
-              Shop the GC-SPORT-01
-            </Link>
-          </div>
+        </FadeUp>
+        <FadeUp className="mx-auto mt-10 max-w-lg px-6 text-aluminum">
+          <ConversionForm
+            startStep="form_start"
+            submitStep="lead"
+            cta="Request Operator Info"
+            fields={[
+              { name: "name", label: "Name", required: true },
+              { name: "email", label: "Email", type: "email", required: true },
+              { name: "company", label: "Company / Venue" },
+              { name: "message", label: "Tell us about your season, terrain and guest volume", type: "textarea" },
+            ]}
+          />
+        </FadeUp>
+        <FadeUp className="mx-auto mt-9 max-w-2xl px-6 text-center">
+          <Link
+            href="/product"
+            className="liquid-glass inline-flex items-center gap-2 rounded-full px-8 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
+          >
+            Shop the GC-SPORT-01
+            <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+          </Link>
         </FadeUp>
       </section>
     </main>

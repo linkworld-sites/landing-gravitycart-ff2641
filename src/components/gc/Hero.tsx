@@ -36,7 +36,7 @@ export function Hero() {
           </p>
           <h1 className="font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-wide text-white md:text-[6.5rem]">
             <WordStagger text="ONE CHASSIS" startDelay={0.15} />
-            <WordStagger text="WHEELS OR SKIS" startDelay={0.23} />
+            <WordStagger text="ENGINEERED LIKE A CAR" startDelay={0.23} />
             <WordStagger text="ALL-SEASON" startDelay={0.31} />
           </h1>
           <motion.p
@@ -45,8 +45,8 @@ export function Hero() {
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}
           >
-            One chassis, rated to 120kg, converts tool-free between wheel and
-            ski assemblies — built for pavement, gravel and packed snow.
+            One chassis, rated to 120kg, built for pavement, gravel and
+            hardpack descents — automotive-grade engineering, not a toy.
           </motion.p>
           <motion.div
             initial={reduce ? undefined : { opacity: 0, y: 20 }}

@@ -69,7 +69,7 @@ export function Nav() {
           <NavRouteLink key={l.href} {...l} />
         ))}
         <Link href="/blog" className="text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white">
-          JOURNAL
+          BLOG
         </Link>
       </nav>
     </header>

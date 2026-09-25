@@ -4,8 +4,6 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { FadeUp } from "./FadeUp";
 
-const SNAP = [0.2, 0.8, 0.2, 1] as const;
-
 function RegistrationMark({ className }: { className: string }) {
   return (
     <svg viewBox="0 0 20 20" className={`absolute h-4 w-4 text-graphite/50 ${className}`} aria-hidden>
@@ -50,34 +48,26 @@ export function ModeConversionBay() {
   const { scrollYProgress } = useScroll({ target: wrapperRef, offset: ["start start", "end end"] });
   const mode = useTransform(scrollYProgress, [0.15, 0.85], [0, 1]);
 
-  const wheelOpacity = useTransform(mode, [0, 0.42], [1, 0]);
-  const wheelScale = useTransform(mode, [0, 0.5], [1, 0.6]);
-  const skiOpacity = useTransform(mode, [0.58, 1], [0, 1]);
-  const skiTilt = useTransform(mode, [0.5, 1], [-8, 0]);
+  const wheelOpacity = useTransform(mode, [0, 0.42], [1, 1]);
+  const wheelScale = useTransform(mode, [0, 0.5], [1, 1]);
 
-  const calloutW1 = useTransform(mode, [0, 0.3], [1, 0]);
-  const calloutW2 = useTransform(mode, [0, 0.36], [1, 0]);
-  const calloutS1 = useTransform(mode, [0.64, 1], [0, 1]);
-  const calloutS2 = useTransform(mode, [0.7, 1], [0, 1]);
-
-  const thumbLeft = useTransform(mode, [0, 1], ["4%", "58%"]);
-  const summerOpacity = useTransform(mode, [0, 0.5], [1, 0.35]);
-  const winterOpacity = useTransform(mode, [0.5, 1], [0.35, 1]);
+  const calloutW1 = useTransform(mode, [0, 0.3], [0, 1]);
+  const calloutW2 = useTransform(mode, [0, 0.36], [0, 1]);
 
   return (
     <section id="bay" className="relative bg-graphite">
       <div className="mx-auto max-w-6xl px-6 pt-20">
         <FadeUp>
           <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-signal">
-            EXHIBIT / MODE-CONVERSION BAY
+            EXHIBIT / CHASSIS BAY
           </p>
           <h2 className="max-w-xl font-display text-4xl font-medium uppercase leading-[0.95] text-aluminum md:text-6xl">
-            One chassis. Two ride configurations.
+            One chassis. Automotive-grade throughout.
           </h2>
         </FadeUp>
       </div>
 
-      <div ref={wrapperRef} className="relative mt-12 h-[280vh]">
+      <div ref={wrapperRef} className="relative mt-12 h-[200vh]">
         <div className="sticky top-0 flex h-screen items-center justify-center px-6">
           <div className="relative w-full max-w-5xl overflow-hidden rounded-sm border border-aluminum/30 bg-aluminum noise-overlay">
             <RegistrationMark className="left-3 top-3" />
@@ -94,16 +84,8 @@ export function ModeConversionBay() {
             />
 
             <div className="relative flex flex-col items-center gap-6 px-8 py-10 md:py-14">
-              <div className="flex w-full max-w-xs items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-graphite">
-                <motion.span style={reduce ? undefined : { opacity: summerOpacity }}>SUMMER</motion.span>
-                <motion.span style={reduce ? undefined : { opacity: winterOpacity }}>WINTER</motion.span>
-              </div>
-              <div className="relative h-8 w-full max-w-xs rounded-full border border-graphite/30 bg-graphite/10">
-                <motion.div
-                  className="absolute top-1/2 h-6 w-[38%] -translate-y-1/2 rounded-full bg-graphite shadow-sm"
-                  style={reduce ? { left: "4%" } : { left: thumbLeft }}
-                  transition={{ ease: SNAP, duration: 0.15 }}
-                />
+              <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-graphite">
+                WHEEL CHASSIS
               </div>
 
               <svg viewBox="0 0 320 380" className="h-[42vh] max-h-[380px] w-auto">
@@ -121,19 +103,10 @@ export function ModeConversionBay() {
                   <circle cx="160" cy="300" r="6" fill="#1C1F22" />
                 </motion.g>
 
-                <motion.g style={reduce ? { opacity: 0 } : { opacity: skiOpacity, rotate: skiTilt }}>
-                  <rect x="130" y="72" width="60" height="18" rx="8" fill="none" stroke="#8A9096" strokeWidth="2" />
-                </motion.g>
-                <motion.g style={reduce ? { opacity: 0 } : { opacity: skiOpacity, rotate: skiTilt }}>
-                  <rect x="130" y="290" width="60" height="18" rx="8" fill="none" stroke="#8A9096" strokeWidth="2" />
-                </motion.g>
-
                 {!reduce && (
                   <>
                     <Callout x={194} y={100} label="4× M8 — 12Nm" opacity={calloutW1} align="right" />
                     <Callout x={126} y={100} label="WHEEL HUB · QR-LEVER" opacity={calloutW2} align="left" />
-                    <Callout x={194} y={300} label="2× M10 — 18Nm" opacity={calloutS1} align="right" />
-                    <Callout x={126} y={300} label="SKI BINDING · TOOL-FREE" opacity={calloutS2} align="left" />
                   </>
                 )}
               </svg>
@@ -143,43 +116,25 @@ export function ModeConversionBay() {
       </div>
 
       <div className="mx-auto max-w-4xl px-6 py-24">
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-aluminum/15 md:grid-cols-2">
-          {[
-            {
-              title: "WHEEL MODE",
-              accent: "text-signal",
-              rows: [
-                ["SURFACE", "Gravel, tarmac, hardpack"],
-                ["TERRAIN GRADE", "≤ 18% descent"],
-                ["WHEEL Ø", "20\" / 406mm"],
-                ["RATED LOAD", "120kg"],
-              ],
-            },
-            {
-              title: "SKI MODE",
-              accent: "text-steel",
-              rows: [
-                ["SURFACE", "Groomed piste, packed snow"],
-                ["TERRAIN GRADE", "≤ 25% descent"],
-                ["SKI LENGTH", "780mm"],
-                ["RATED LOAD", "120kg"],
-              ],
-            },
-          ].map((card) => (
-            <FadeUp key={card.title} className="bg-graphite p-8">
-              <p className={`mb-6 font-mono text-[11px] uppercase tracking-[0.22em] ${card.accent}`}>{card.title}</p>
-              <table className="w-full font-mono text-[13px] text-aluminum/85">
-                <tbody>
-                  {card.rows.map(([label, value]) => (
-                    <tr key={label} className="border-t border-aluminum/10">
-                      <td className="py-2.5 text-aluminum/50">{label}</td>
-                      <td className="py-2.5 text-right tabular">{value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </FadeUp>
-          ))}
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-aluminum/15">
+          <FadeUp className="bg-graphite p-8">
+            <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.22em] text-signal">WHEEL MODE</p>
+            <table className="w-full font-mono text-[13px] text-aluminum/85">
+              <tbody>
+                {[
+                  ["SURFACE", "Gravel, tarmac, hardpack"],
+                  ["TERRAIN GRADE", "≤ 18% descent"],
+                  ["WHEEL Ø", "20\" / 406mm"],
+                  ["RATED LOAD", "120kg"],
+                ].map(([label, value]) => (
+                  <tr key={label} className="border-t border-aluminum/10">
+                    <td className="py-2.5 text-aluminum/50">{label}</td>
+                    <td className="py-2.5 text-right tabular">{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </FadeUp>
         </div>
       </div>
     </section>

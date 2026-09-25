@@ -55,7 +55,7 @@ export function VideoCTA() {
             <span>© 2026 GravityCart. All specifications subject to change.</span>
             <nav className="flex items-center gap-6">
               <Link href="/blog" className="transition-colors hover:text-white">
-                Journal
+                Blog
               </Link>
               <Link href="/legal/privacy" className="transition-colors hover:text-white">
                 Privacy

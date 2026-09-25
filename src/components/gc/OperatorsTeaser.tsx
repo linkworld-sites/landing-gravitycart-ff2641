@@ -25,7 +25,7 @@ export function OperatorsTeaser() {
           </h2>
           <p className="mt-6 max-w-xl text-aluminum/70">
             Lift operators, tour guides and mountain lodges run the Gravity Cart Sport as a
-            rental fleet — one machine their guests can ride all season, on wheels or skis.
+            rental fleet — one automotive-engineered machine their guests can ride all season.
           </p>
         </FadeUp>
 
