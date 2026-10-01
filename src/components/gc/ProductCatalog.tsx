@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ShoppingCart } from "lucide-react";
+import { ArrowRight, ShieldCheck, ShoppingCart } from "lucide-react";
 import type { Product } from "@/lib/checkout";
 import { fetchProducts, formatPrice } from "@/lib/checkout";
 import { track } from "@/lib/funnel";
@@ -147,6 +147,20 @@ export function ProductCatalog({ products: initial }: { products: Product[] }) {
           Every unit ships ready to ride. Spare assemblies and conversion kits are
           machined to the same tolerance as the original chassis.
         </p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-aluminum/10 py-4 font-mono text-[11px] uppercase tracking-[0.16em] text-aluminum/70">
+          <span className="flex items-center gap-2">
+            <ShieldCheck className="h-3.5 w-3.5 text-signal" strokeWidth={1.5} />
+            Homologated specs, not marketing rounding
+          </span>
+          <span className="flex items-center gap-2">
+            <ShieldCheck className="h-3.5 w-3.5 text-signal" strokeWidth={1.5} />
+            ECE R100-tested brake hardware
+          </span>
+          <span className="flex items-center gap-2">
+            <ShieldCheck className="h-3.5 w-3.5 text-signal" strokeWidth={1.5} />
+            Automotive-grade engineering validation
+          </span>
+        </div>
       </FadeUp>
 
       <div className="mt-10">
