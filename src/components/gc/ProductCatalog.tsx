@@ -46,7 +46,8 @@ function ProductRow({ product, index }: { product: Product; index: number }) {
 
   return (
     <FadeUp
-      className="grid grid-cols-1 gap-6 border-t border-aluminum/10 py-10 md:grid-cols-[220px_1fr_auto] md:items-center md:gap-10"
+      id={index === 0 ? "gc-sport-01" : undefined}
+      className="grid grid-cols-1 gap-6 scroll-mt-28 border-t border-aluminum/10 py-10 md:grid-cols-[220px_1fr_auto] md:items-center md:gap-10"
       delay={Math.min(index * 0.05, 0.3)}
     >
       <div className="aspect-[4/3] w-full overflow-hidden md:aspect-square">
@@ -128,24 +129,35 @@ export function ProductCatalog({ products: initial }: { products: Product[] }) {
     <section className="relative mx-auto max-w-5xl px-6 pb-32 pt-16">
       <FadeUp>
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-signal">
-          PARTS CATALOG / SELLABLE INVENTORY
+          DIRECT FROM GRAVITYCART / IN STOCK NOW
         </p>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h1 className="max-w-xl font-display text-4xl font-medium uppercase leading-[0.95] text-white md:text-5xl">
-            Order the chassis
+            One chassis. Every season.
           </h1>
-          <Link
-            href="/checkout"
-            className="liquid-glass flex items-center gap-2 rounded-full px-6 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
-          >
-            <ShoppingCart className="h-3.5 w-3.5" strokeWidth={1.5} />
-            Cart ({count})
-            <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
-          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="#gc-sport-01"
+              className="flex items-center gap-2 whitespace-nowrap rounded-full bg-signal px-6 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-90"
+            >
+              Order the GC-SPORT-01 — €2,890
+            </a>
+            <Link
+              href="/checkout"
+              className="liquid-glass flex items-center gap-2 rounded-full px-5 py-3 font-mono text-[12px] uppercase tracking-[0.16em] text-white"
+              aria-label={`View cart, ${count} items`}
+            >
+              <ShoppingCart className="h-3.5 w-3.5" strokeWidth={1.5} />
+              {count}
+              <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+            </Link>
+          </div>
         </div>
         <p className="mt-4 max-w-xl text-sm text-aluminum/60">
-          Every unit ships ready to ride. Spare assemblies and conversion kits are
-          machined to the same tolerance as the original chassis.
+          The GC-SPORT-01 ships complete with certified wheel and ski assemblies —
+          rated to 120kg, ready for pavement, gravel and packed snow the day it
+          arrives. Spare parts and conversion kits below are machined to the same
+          tolerance as the chassis itself.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-aluminum/10 py-4 font-mono text-[11px] uppercase tracking-[0.16em] text-aluminum/70">
           <span className="flex items-center gap-2">
@@ -161,6 +173,15 @@ export function ProductCatalog({ products: initial }: { products: Product[] }) {
             Automotive-grade engineering validation
           </span>
         </div>
+        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-aluminum/50">
+          Buying for a fleet?{" "}
+          <Link
+            href="/operators"
+            className="text-aluminum/80 underline decoration-aluminum/30 underline-offset-4 transition-colors hover:text-white"
+          >
+            See rental &amp; operator programs
+          </Link>
+        </p>
       </FadeUp>
 
       <div className="mt-10">

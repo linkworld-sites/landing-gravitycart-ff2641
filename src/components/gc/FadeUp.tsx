@@ -10,13 +10,15 @@ type FadeUpProps = {
   y?: number;
   amount?: number;
   as?: "div" | "span";
+  id?: string;
 };
 
-export function FadeUp({ children, className, delay = 0, y = 24, amount = 0.2, as = "div" }: FadeUpProps) {
+export function FadeUp({ children, className, delay = 0, y = 24, amount = 0.2, as = "div", id }: FadeUpProps) {
   const reduce = useReducedMotion();
   const Comp = motion[as];
   return (
     <Comp
+      id={id}
       className={className}
       initial={reduce ? undefined : { opacity: 0, y }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
