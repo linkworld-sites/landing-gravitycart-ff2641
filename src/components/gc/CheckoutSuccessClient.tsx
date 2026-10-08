@@ -24,7 +24,7 @@ export function CheckoutSuccessClient() {
       setConfirmed(true);
       return;
     }
-    track("purchase", { value: value ?? undefined, currency, order_id: order });
+    track("convert", { value: value ?? undefined, currency, order_id: order });
     sessionStorage.setItem(key, "1");
     setConfirmed(true);
   }, [order, value, currency]);
