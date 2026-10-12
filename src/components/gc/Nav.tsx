@@ -15,6 +15,7 @@ const ROUTE_LINKS = [
   { href: "/product", label: "SHOP" },
   { href: "/faq", label: "FAQ" },
   { href: "/availability", label: "AVAILABILITY" },
+  { href: "/compare", label: "COMPARE" },
   { href: "/checkout", label: "CHECKOUT" },
 ];
 
