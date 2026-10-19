@@ -82,6 +82,13 @@ export default function FaqPage() {
             >
               Retailer &amp; regional availability
             </Link>
+            {" · "}
+            <Link
+              href="/cart-software"
+              className="text-aluminum/80 underline decoration-aluminum/30 underline-offset-4 transition-colors hover:text-white"
+            >
+              Cart software or cart vehicle?
+            </Link>
           </p>
         </div>
       </section>
