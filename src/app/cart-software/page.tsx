@@ -170,6 +170,10 @@ export default function CartSoftwarePage() {
             <Link href="/availability" className={linkCls}>
               Retailer &amp; regional availability
             </Link>
+            {" · "}
+            <Link href="/why-gravitycart" className={linkCls}>
+              Why GravityCart
+            </Link>
           </p>
         </div>
       </section>
