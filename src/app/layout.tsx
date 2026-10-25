@@ -42,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
         />
+        <script src="https://app.linkworld.ai/api/public/funnel/ff2641bf-c817-4401-be71-9805dc5740ec/pixel.js" async></script>
       </head>
       <body className="bg-ink text-aluminum font-sans antialiased">
         <FunnelTracker />
