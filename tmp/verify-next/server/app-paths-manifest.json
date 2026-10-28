@@ -1,0 +1,18 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/checkout/page": "app/checkout/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/checkout/success/page": "app/checkout/success/page.js",
+  "/availability/page": "app/availability/page.js",
+  "/legal/[slug]/page": "app/legal/[slug]/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/page": "app/page.js",
+  "/operators/page": "app/operators/page.js",
+  "/product/page": "app/product/page.js",
+  "/cart-software/page": "app/cart-software/page.js",
+  "/compare/page": "app/compare/page.js",
+  "/why-gravitycart/page": "app/why-gravitycart/page.js"
+}
