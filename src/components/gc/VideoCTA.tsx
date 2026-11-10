@@ -27,7 +27,7 @@ export function VideoCTA() {
             One machine, every season — engineered like a car, built to outlast one.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/product" className="inline-block">
+            <Link href="/product" className="inline-block" data-lw-cta="final_shop_cta">
               <motion.span
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
@@ -37,7 +37,7 @@ export function VideoCTA() {
                 Shop the GC-SPORT-01
               </motion.span>
             </Link>
-            <Link href="/operators" className="inline-block">
+            <Link href="/operators" className="inline-block" data-lw-cta="final_operators_cta">
               <motion.span
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}

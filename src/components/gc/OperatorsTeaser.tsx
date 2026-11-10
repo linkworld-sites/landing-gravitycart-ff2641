@@ -44,7 +44,7 @@ export function OperatorsTeaser() {
         </div>
 
         <FadeUp className="mt-12">
-          <Link href="/operators" className="inline-block">
+          <Link href="/operators" className="inline-block" data-lw-cta="operators_teaser_cta">
             <motion.span
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
