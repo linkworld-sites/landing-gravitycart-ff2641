@@ -3,7 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost, getPosts } from "@/lib/posts";
 import { SITE_URL } from "@/lib/site";
+import { SportCluster } from "@/components/gc/SportCluster";
 import { productJsonLd, getFaq, faqJsonLd } from "@/lib/site-meta";
+
+const SPORT_POSTS = [
+  "2026-09-02-gravitycart-sport-launch",
+  "2026-09-02-gravity-powered-descent-carts",
+];
 
 export function generateStaticParams() {
   return getPosts().map((p) => ({ slug: p.slug }));
@@ -34,6 +40,8 @@ export default async function BlogPost({
   if (!post) notFound();
 
   const faq = getFaq();
+  const sportPath = `/blog/${slug}`;
+  const inSportCluster = SPORT_POSTS.includes(slug);
   const faqSchema = faqJsonLd();
 
   const articleJsonLd = {
@@ -44,6 +52,9 @@ export default async function BlogPost({
     datePublished: post.date || undefined,
     url: `${SITE_URL}/blog/${slug}`,
     author: { "@type": "Organization", name: "GravityCart" },
+    ...(inSportCluster && {
+      about: { "@type": "Product", name: "Gravity Cart Sport", sku: "GC-SPORT-01", url: `${SITE_URL}/product` },
+    }),
   };
 
   return (
@@ -84,6 +95,7 @@ export default async function BlogPost({
           </dl>
         </section>
       )}
+      {inSportCluster && <SportCluster current={sportPath} />}
     </main>
   );
 }

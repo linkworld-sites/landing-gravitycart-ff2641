@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Nav } from "@/components/gc/Nav";
 import { FadeUp } from "@/components/gc/FadeUp";
+import { SportCluster } from "@/components/gc/SportCluster";
 import { getFaq, faqJsonLd } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
@@ -90,6 +91,7 @@ export default function FaqPage() {
               Cart software or cart vehicle?
             </Link>
           </p>
+          <SportCluster current="/faq" />
         </div>
       </section>
     </main>

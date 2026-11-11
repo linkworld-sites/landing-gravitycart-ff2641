@@ -20,4 +20,6 @@ Stopping is the one job on a gravity-powered vehicle that cannot be approximate.
 
 You can see the conversion itself, not just read the spec sheet, in the [chassis conversion demonstration](/#bay) on our homepage.
 
+For the design rationale behind the Sport platform, read [Introducing the Gravity Cart Sport](/blog/2026-09-02-gravitycart-sport-launch); certification and load-rating answers are in the [specification FAQ](/faq).
+
 ## Frequently asked questions

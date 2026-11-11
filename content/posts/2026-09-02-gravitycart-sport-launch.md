@@ -24,4 +24,6 @@ The frame is a mono-material 6061-T6 aluminum structure — 100% recyclable at e
 
 The Gravity Cart Sport is independently tested and documented against ECE 2006/42/EG, ISO EN 12100 and ISO EN 4210 — the same category of machinery and safety directives that govern the automotive and machinery industries we came from. We'd rather list the clause numbers than the adjectives.
 
+Load ratings, grade limits and certification scope are answered question by question in the [Gravity Cart Sport specification FAQ](/faq). The mechanical detail of the wheel-to-ski change is in [how a gravity-powered descent cart converts](/blog/2026-09-02-gravity-powered-descent-carts), and the GC-SPORT-01 chassis and certified spares are available on the [product page](/product).
+
 Engineered like a car. Built for the mountain.

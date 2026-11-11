@@ -3,6 +3,7 @@ import { fetchProducts } from "@/lib/checkout";
 import { CartProvider } from "@/components/CartContext";
 import { Nav } from "@/components/gc/Nav";
 import { ProductCatalog } from "@/components/gc/ProductCatalog";
+import { SportCluster } from "@/components/gc/SportCluster";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -50,6 +51,9 @@ export default async function ProductPage() {
           />
         )}
         <ProductCatalog products={products} />
+        <div className="mx-auto max-w-5xl px-6 pb-24">
+          <SportCluster current="/product" />
+        </div>
       </main>
     </CartProvider>
   );
